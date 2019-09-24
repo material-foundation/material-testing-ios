@@ -183,7 +183,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1100;
-				ORGANIZATIONNAME = "Wenyu Zhang";
+				ORGANIZATIONNAME = "Google";
 				TargetAttributes = {
 					DD87104E233A7EFD0014F4B7 = {
 						CreatedOnToolsVersion = 11.0;
