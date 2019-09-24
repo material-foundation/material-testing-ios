@@ -1,6 +1,6 @@
-# material-testing-ios
+# MDFTesting
 
-This repository extends XCTest framework with testing helper additions.
+MDFTesting extends XCTest framework with testing helper additions.
 
 ## Testing Extension
 
