@@ -22,20 +22,20 @@ exports_files(["LICENSE"])
 strict_warnings_objc_library(
     name = "MDFTesting",
     srcs = glob([
-        "Sources/*.m",
+        "src/*.m",
     ]),
     hdrs = glob([
-        "Sources/*.h",
+        "src/*.h",
     ]),
     enable_modules = 1,
-    includes = ["Sources"],
+    includes = ["src"],
     visibility = ["//visibility:public"],
 )
 
 objc_library(
     name = "UnitTestsLib",
     srcs = glob([
-        "Examples/MDFTestingExample/MDFTestingExampleTests/*.m",
+        "examples/MDFTestingExample/MDFTestingExampleTests/*.m",
     ]),
     deps = [
         ":MDFTesting",
