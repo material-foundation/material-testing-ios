@@ -1,0 +1,18 @@
+PODS:
+  - MDFTesting (1.0.0):
+    - MDFTesting/MDFTesting (= 1.0.0)
+  - MDFTesting/MDFTesting (1.0.0)
+
+DEPENDENCIES:
+  - MDFTesting (from `../`)
+
+EXTERNAL SOURCES:
+  MDFTesting:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MDFTesting: def5e79c6cc9e641a87e3eb2cb545b69984983c7
+
+PODFILE CHECKSUM: f68cc4584957218d15c617848be26ebbd4bf5c8f
+
+COCOAPODS: 1.7.2

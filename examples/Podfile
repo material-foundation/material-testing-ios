@@ -1,0 +1,11 @@
+use_frameworks!
+
+target "MDFTestingExample" do
+  platform :ios, '9.0'
+  project 'MDFTestingExample/MDFTestingExample.xcodeproj'
+
+  target 'MDFTestingExampleTests' do
+    inherit! :search_paths
+    pod 'MDFTesting', :path => '../'
+  end
+end
