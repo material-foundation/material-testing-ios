@@ -29,6 +29,7 @@ strict_warnings_objc_library(
     ]),
     enable_modules = 1,
     includes = ["src"],
+    sdk_frameworks = ["XCTest"],
     visibility = ["//visibility:public"],
 )
 
