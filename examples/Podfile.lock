@@ -1,7 +1,7 @@
 PODS:
-  - MDFTesting (1.0.0):
-    - MDFTesting/MDFTesting (= 1.0.0)
-  - MDFTesting/MDFTesting (1.0.0)
+  - MDFTesting (1.0.2):
+    - MDFTesting/MDFTesting (= 1.0.2)
+  - MDFTesting/MDFTesting (1.0.2)
 
 DEPENDENCIES:
   - MDFTesting (from `../`)
@@ -11,7 +11,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MDFTesting: def5e79c6cc9e641a87e3eb2cb545b69984983c7
+  MDFTesting: 568e62b1ff9fad25637d971e152d59f43ff1ad1e
 
 PODFILE CHECKSUM: f68cc4584957218d15c617848be26ebbd4bf5c8f
 
