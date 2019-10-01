@@ -17,18 +17,18 @@
 #import <XCTest/XCTest.h>
 
 /*!
- * @define XCTAssertEqualColors(color1, color2)
+ * @define MDFAssertEqualColors(color1, color2)
  * Generates a failure when Generates a failure when two UIColor instances are not equal in RGB color space.
  * @param color1 The first color of UIColor type.
  * @param color2 The second color of UIColor type.
 */
-#define XCTAssertEqualColors(color1, color2) [self assertEqualFirstColor:color1 secondColor:color2];
+#define MDFAssertEqualColors(color1, color2) [self mdf_assertEqualFirstColor:color1 secondColor:color2];
 
 @interface XCTestCase (MDFTesting)
 
 /// Generates a failure when two UIColor instances are not equal in RGB color space.
 /// @param firstColor The first color of UIColor type.
 /// @param secondColor The second color of UIColor type.
-- (void)assertEqualFirstColor:(UIColor *)firstColor secondColor:(UIColor *)secondColor;
+- (void)mdf_assertEqualFirstColor:(UIColor *)firstColor secondColor:(UIColor *)secondColor;
 
 @end
