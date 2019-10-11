@@ -22,7 +22,19 @@
  * @param color1 The first color of UIColor type.
  * @param color2 The second color of UIColor type.
 */
+<<<<<<< Updated upstream
 #define MDFAssertEqualColors(color1, color2) [self mdf_assertEqualFirstColor:color1 secondColor:color2];
+=======
+#define MDFAssertEqualColors(color1, color2) \
+  CGFloat fRed = 0.0f, fGreen = 0.0f, fBlue = 0.0f, fAlpha = 0.0f; \
+  [color1 getRed:&fRed green:&fGreen blue:&fBlue alpha:&fAlpha]; \
+  CGFloat sRed = 0.0f, sGreen = 0.0f, sBlue = 0.0f, sAlpha = 0.0f; \
+  [color2 getRed:&sRed green:&sGreen blue:&sBlue alpha:&sAlpha]; \
+  XCTAssertEqualWithAccuracy(fRed, sRed, FLT_EPSILON); \
+  XCTAssertEqualWithAccuracy(fGreen, sGreen, FLT_EPSILON); \
+  XCTAssertEqualWithAccuracy(fBlue, sBlue, FLT_EPSILON); \
+  XCTAssertEqualWithAccuracy(fAlpha, sAlpha, FLT_EPSILON);
+>>>>>>> Stashed changes
 
 @interface XCTestCase (MDFTesting)
 
