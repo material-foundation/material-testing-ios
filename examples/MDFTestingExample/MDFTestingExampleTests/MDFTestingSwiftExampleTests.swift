@@ -21,6 +21,6 @@ class MDFTestingSwiftExampleTests: XCTestCase {
     func testUIColorMDFTestingEqualityAssertion() {
       let color1 = UIColor.white
       let color2 = UIColor.init(red: 1, green: 1, blue: 1, alpha: 1);
-      MDFAssertEqualColors(color1, UIColor.red)
+      MDFAssertEqualColors(color1, color2)
     }
 }
