@@ -39,11 +39,7 @@ limitations under the License.
   UIColor *whiteColor2 = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
 
   // Then
-<<<<<<< Updated upstream
   MDFAssertEqualColors(whiteColor1, whiteColor2);
-=======
-  XCTAssertColors(whiteColor1, whiteColor2);
->>>>>>> Stashed changes
 }
 
 @end
