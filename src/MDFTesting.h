@@ -24,6 +24,7 @@
  * @param color2 The second color of UIColor type.
  */
 #define MDFAssertEqualColors(color1, color2)                       \
+{                                                                  \
   CGFloat fRed = 0.0f, fGreen = 0.0f, fBlue = 0.0f, fAlpha = 0.0f; \
   [color1 getRed:&fRed green:&fGreen blue:&fBlue alpha:&fAlpha];   \
   CGFloat sRed = 0.0f, sGreen = 0.0f, sBlue = 0.0f, sAlpha = 0.0f; \
@@ -31,4 +32,5 @@
   XCTAssertEqualWithAccuracy(fRed, sRed, FLT_EPSILON);             \
   XCTAssertEqualWithAccuracy(fGreen, sGreen, FLT_EPSILON);         \
   XCTAssertEqualWithAccuracy(fBlue, sBlue, FLT_EPSILON);           \
-  XCTAssertEqualWithAccuracy(fAlpha, sAlpha, FLT_EPSILON);
+  XCTAssertEqualWithAccuracy(fAlpha, sAlpha, FLT_EPSILON);         \
+}
