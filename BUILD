@@ -15,6 +15,7 @@
 load("@build_bazel_rules_apple//apple:ios.bzl", "ios_unit_test")
 load("@bazel_ios_warnings//:strict_warnings_objc_library.bzl", "strict_warnings_objc_library")
 load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+load("@build_bazel_rules_apple//apple/testing/default_runner:ios_test_runner.bzl", "ios_test_runner")
 
 licenses(["notice"])  # Apache 2.0
 
@@ -35,7 +36,12 @@ strict_warnings_objc_library(
 )
 
 swift_library(
-    name = "MDFTesting
+    name = "MDFTestingSwift",
+    srcs = glob([
+        "src/*.swift",
+    ]),
+    module_name = "MDFTesting",
+    visibility = ["//visibility:public"],
 )
 
 objc_library(
@@ -46,15 +52,37 @@ objc_library(
     deps = [
         ":MDFTesting",
     ],
+    testonly = 1,
     visibility = ["//visibility:private"],
+)
+
+swift_library(
+    name = "SwiftUnitTestsLib",
+    srcs = glob([
+        "examples/MDFTestingExample/MDFTestingExampleTests/*.swift",
+    ]),
+    deps = [
+        ":MDFTestingSwift",
+    ],
+    testonly = 1,
+    visibility = ["//visibility:private"],
+)
+
+ios_test_runner(
+    name = "IPHONE_7_PLUS_IN_10_3",
+    device_type = "iPhone 7 Plus",
+    os_version = "10.3",
+    visibility = ["//visibility:public"],
 )
 
 ios_unit_test(
     name = "UnitTests",
     deps = [
-      ":UnitTestsLib"
+      ":UnitTestsLib",
+      ":SwiftUnitTestsLib",
     ],
     minimum_os_version = "9.0",
+    runner = ":IPHONE_7_PLUS_IN_10_3",
     timeout = "short",
     visibility = ["//visibility:private"],
 )
