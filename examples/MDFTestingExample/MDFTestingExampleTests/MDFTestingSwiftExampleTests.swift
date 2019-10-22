@@ -23,4 +23,16 @@ class MDFTestingSwiftExampleTests: XCTestCase {
       let color2 = UIColor.init(red: 1, green: 1, blue: 1, alpha: 1);
       MDFAssertEqualColors(color1, color2)
     }
+
+  func testUIColorWithAlphaMDFTestingEqualityAssertion() {
+    let color1 = UIColor.init(white: 1, alpha: 0.7)
+    let color2 = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.7);
+    MDFAssertEqualColors(color1, color2)
+  }
+
+  func testCustomizedUIColorMDFTestingEqualityAssertion() {
+    let color1 = UIColor.init(red: 0.6, green: 0.5, blue: 1, alpha: 0.7);
+    let color2 = UIColor.init(red: 0.6, green: 0.5, blue: 1, alpha: 0.7);
+    MDFAssertEqualColors(color1, color2)
+  }
 }
