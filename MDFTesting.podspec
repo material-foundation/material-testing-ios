@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   s.subspec "MDFTesting" do |ss|
     ss.public_header_files = "src/*.h"
-    ss.source_files = "src/*.{h,m,mm}", "src/private/*.{h,m,mm}"
+    ss.source_files = "src/*.{h,m,mm,swift}", "src/private/*.{h,m,mm,swift}"
     ss.framework = "XCTest"
   end
 

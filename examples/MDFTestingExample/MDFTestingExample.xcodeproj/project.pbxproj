@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		DD871059233A7EFD0014F4B7 /* MDFTestingExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD87104F233A7EFD0014F4B7 /* MDFTestingExample.framework */; };
 		DD87105E233A7EFD0014F4B7 /* MDFTestingExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD87105D233A7EFD0014F4B7 /* MDFTestingExampleTests.m */; };
 		DD871060233A7EFD0014F4B7 /* MDFTestingExample.h in Headers */ = {isa = PBXBuildFile; fileRef = DD871052233A7EFD0014F4B7 /* MDFTestingExample.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DD871247233E74050014F4B7 /* MDFTestingSwiftExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD871246233E74050014F4B7 /* MDFTestingSwiftExampleTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 		DD871058233A7EFD0014F4B7 /* MDFTestingExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MDFTestingExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD87105D233A7EFD0014F4B7 /* MDFTestingExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDFTestingExampleTests.m; sourceTree = "<group>"; };
 		DD87105F233A7EFD0014F4B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD871246233E74050014F4B7 /* MDFTestingSwiftExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDFTestingSwiftExampleTests.swift; sourceTree = "<group>"; };
+		DD871249233E75160014F4B7 /* MDFTestingExampleTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MDFTestingExampleTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		F6E77774A9873CAE97FDA065 /* Pods_MDFTestingExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MDFTestingExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -117,8 +120,10 @@
 		DD87105C233A7EFD0014F4B7 /* MDFTestingExampleTests */ = {
 			isa = PBXGroup;
 			children = (
+				DD871249233E75160014F4B7 /* MDFTestingExampleTests-Bridging-Header.h */,
 				DD87105D233A7EFD0014F4B7 /* MDFTestingExampleTests.m */,
 				DD87105F233A7EFD0014F4B7 /* Info.plist */,
+				DD871246233E74050014F4B7 /* MDFTestingSwiftExampleTests.swift */,
 			);
 			path = MDFTestingExampleTests;
 			sourceTree = "<group>";
@@ -183,13 +188,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1100;
-				ORGANIZATIONNAME = "Google";
+				ORGANIZATIONNAME = Google;
 				TargetAttributes = {
 					DD87104E233A7EFD0014F4B7 = {
 						CreatedOnToolsVersion = 11.0;
 					};
 					DD871057233A7EFD0014F4B7 = {
 						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1100;
 					};
 				};
 			};
@@ -306,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD87105E233A7EFD0014F4B7 /* MDFTestingExampleTests.m in Sources */,
+				DD871247233E74050014F4B7 /* MDFTestingSwiftExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +493,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DCD4CC4A92653115E0C9DA6A /* Pods-MDFTestingExampleTests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MDFTestingExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -495,6 +503,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Google.MDFTestingExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MDFTestingExampleTests/MDFTestingExampleTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -503,6 +514,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6638BE40B1620AEBCF0E190E /* Pods-MDFTestingExampleTests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MDFTestingExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -512,6 +524,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Google.MDFTestingExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MDFTestingExampleTests/MDFTestingExampleTests-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
