@@ -13,12 +13,13 @@
 # limitations under the License.
 
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file", "http_archive")
 
 git_repository(
     name = "build_bazel_rules_apple",
     remote = "https://github.com/bazelbuild/rules_apple.git",
-    tag = "0.9.0",
+    commit = "19f031f09185e0fcd722c22e596d09bd6fff7944",  # 0.19.0
+    shallow_since = "1570721035 -0700",  # 10-10-2019
 )
 
 load(
@@ -28,12 +29,6 @@ load(
 
 apple_rules_dependencies()
 
-git_repository(
-    name = "build_bazel_rules_swift",
-    remote = "https://github.com/bazelbuild/rules_swift.git",
-    tag = "0.4.0",
-)
-
 load(
     "@build_bazel_rules_swift//swift:repositories.bzl",
     "swift_rules_dependencies",
@@ -41,20 +36,30 @@ load(
 
 swift_rules_dependencies()
 
-git_repository(
-    name = "bazel_skylib",
-    remote = "https://github.com/bazelbuild/bazel-skylib.git",
-    tag = "0.6.0",
+load(
+    "@build_bazel_apple_support//lib:repositories.bzl",
+    "apple_support_dependencies",
 )
+
+apple_support_dependencies()
 
 git_repository(
     name = "bazel_ios_warnings",
     remote = "https://github.com/material-foundation/bazel_ios_warnings.git",
-    tag = "v2.0.0",
+    commit = "c3f720c0838af1ee53299aa6efda87cf729146b4",  # v3.0.0
+    shallow_since = "1545400728 -0500"  # 12-21-2018
 )
 
-http_file(
-    name = "xctestrunner",
-    executable = 1,
-    urls = ["https://github.com/google/xctestrunner/releases/download/0.2.10/ios_test_runner.par"],
+# This override of the zlib package resolves the following error:
+# "no such package '@zlib//': The repository '@zlib' could not be resolved"
+# Additional context available at: https://github.com/bazelbuild/bazel/issues/10270
+http_archive(
+    name = "zlib",
+    build_file = "@com_google_protobuf//:third_party/zlib.BUILD",
+    sha256 = "c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1",
+    strip_prefix = "zlib-1.2.11",
+    urls = [
+        "https://mirror.bazel.build/zlib.net/zlib-1.2.11.tar.gz",
+        "https://zlib.net/zlib-1.2.11.tar.gz",
+    ],
 )
