@@ -15,6 +15,19 @@
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file", "http_archive")
 
+# TODO(https://github.com/material-foundation/material-testing-ios/issues/8):
+# google/xctestrunner 0.2.10 currently has a bug that makes it impossible to run tests on
+# pre-iOS 12.2 devices with Bazel when using Xcode 11. This bug has been fixed in
+# https://github.com/google/xctestrunner/pull/13.
+http_file(
+    name = "xctestrunner",
+    executable = 1,
+    urls = [
+        "https://github.com/material-foundation/xctestrunner/releases/download/0.2.10-patch/ios_test_runner.par",
+    ],
+    sha256 = "a0a8be06b14f787f6017474b1ed33068c616b5b1154cf16e2e7ac3e7f047fd8c",
+)
+
 git_repository(
     name = "build_bazel_rules_apple",
     remote = "https://github.com/bazelbuild/rules_apple.git",
