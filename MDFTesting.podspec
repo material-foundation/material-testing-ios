@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.ios.deployment_target = '9.0'
   s.default_subspec = "MDFTesting"
+  s.swift_version = '5.0'
 
   s.subspec "MDFTesting" do |ss|
     ss.public_header_files = "src/*.h"
