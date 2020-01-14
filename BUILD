@@ -67,9 +67,12 @@ swift_library(
 )
 
 ios_test_runner(
-    name = "IPAD_PRO_12_9_IN_9_3",
+    name = "IPAD_PRO_12_9_IN_LOWEST_SUPPORTED",
     device_type = "iPad Pro (12.9-inch)",
-    os_version = "9.3",
+    os_version = select({
+        ":xcode_10_2": "9.3",
+        "//conditions:default": "10.3",
+    }),
 )
 
 ios_test_runner(
@@ -99,9 +102,14 @@ ios_unit_test_suite(
     minimum_os_version = "9.0",
     timeout = "short",
     runners = [
-        ":IPAD_PRO_12_9_IN_9_3",
+        ":IPAD_PRO_12_9_IN_LOWEST_SUPPORTED",
         ":IPHONE_7_PLUS_IN_10_3",
         ":IPHONE_X_IN_11_4",
         ":IPHONE_XS_MAX_IN_12_2",
     ],
+)
+
+config_setting(
+    name = "xcode_10_2",
+    values = {"xcode_version": "10.2"},
 )
